@@ -87,6 +87,25 @@ public class PickImageFragment extends Fragment {
             openCamera();
         } else if (preference == ScanConstants.OPEN_MEDIA) {
             openMediaContent();
+        } else if (preference == ScanConstants.DECODE_BASE64) {
+            // Decode base64 string and handle the bitmap
+            String base64Image = getArguments().getString("base64Image", "");
+            Bitmap bitmap = decodeBase64ToBitmap(base64Image);
+            if (bitmap != null) {
+                postImagePick(bitmap);
+            } else {
+                Toast.makeText(getActivity(), "Failed to decode base64 image", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    private Bitmap decodeBase64ToBitmap(String base64Str) {
+        try {
+            byte[] decodedBytes = Base64.decode(base64Str, Base64.DEFAULT);
+            return BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.length);
+        } catch (IllegalArgumentException e) {
+            Log.e("PickImageFragment", "Error decoding base64 string", e);
+            return null;
         }
     }
 
