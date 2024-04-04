@@ -90,12 +90,11 @@ public class PickImageFragment extends Fragment {
             openMediaContent();
         } else if (preference == ScanConstants.DECODE_BASE64) {
             // Decode base64 string and handle the bitmap
-            String base64Image = getArguments().getString("base64Image", "");
-            Bitmap bitmap = decodeBase64ToBitmap(base64Image);
+            Bitmap bitmap = BitmapFactory.decodeFile(filePath);
             if (bitmap != null) {
                 postImagePick(bitmap);
             } else {
-                Toast.makeText(getActivity(), "Failed to decode base64 image", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Failed to get bitmap from image", Toast.LENGTH_SHORT).show();
             }
         }
     }
