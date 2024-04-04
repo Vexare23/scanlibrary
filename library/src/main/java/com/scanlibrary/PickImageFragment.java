@@ -28,6 +28,7 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import android.util.Base64;
 
 /**
  * Created by jhansi on 04/04/15.
