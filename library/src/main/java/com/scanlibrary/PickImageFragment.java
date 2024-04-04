@@ -90,6 +90,7 @@ public class PickImageFragment extends Fragment {
             openMediaContent();
         } else if (preference == ScanConstants.DECODE_BASE64) {
             // Decode base64 string and handle the bitmap
+            String filePath = getArguments().getString("filePath", "");
             Bitmap bitmap = BitmapFactory.decodeFile(filePath);
             if (bitmap != null) {
                 postImagePick(bitmap);
