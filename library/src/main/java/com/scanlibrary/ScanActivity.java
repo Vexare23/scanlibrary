@@ -26,8 +26,8 @@ public class ScanActivity extends Activity implements IScanner, ComponentCallbac
         Bundle bundle = new Bundle();
         bundle.putInt(ScanConstants.OPEN_INTENT_PREFERENCE, getPreferenceContent());
         bundle.putInt("quality", getIntent().getIntExtra("quality", 1));
-        String base64Image = getIntent().getStringExtra("base64Image");
-        bundle.putString("base64Image", base64Image);
+        String filePath = getIntent().getStringExtra("filePath");
+        bundle.putString("filePath", filePath);
         fragment.setArguments(bundle);
         android.app.FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
