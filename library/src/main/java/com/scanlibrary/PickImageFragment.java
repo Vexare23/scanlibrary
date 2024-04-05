@@ -88,7 +88,7 @@ public class PickImageFragment extends Fragment {
             openCamera();
         } else if (preference == ScanConstants.OPEN_MEDIA) {
             openMediaContent();
-        } else if (preference == ScanConstants.DECODE_BASE64) {
+        } else if (preference == ScanConstants.LOAD_FROM_URL) {
             // Decode base64 string and handle the bitmap
             String filePath = getArguments().getString("filePath", "");
             Bitmap bitmap = BitmapFactory.decodeFile(filePath);
